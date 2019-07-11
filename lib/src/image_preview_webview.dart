@@ -75,7 +75,7 @@ class _ImagePreviewWebviewState extends State<ImagePreviewWebview> {
     (function () {
         var imageNodes = document.getElementsByTagName('img');
         var images = [];
-        for (var i in imageNodes) {
+        for (var i = 0; i < imageNodes.length; i++) {
             var image = imageNodes.item(i);
             if (image.src) {
               image.onclick = function(e) {
