@@ -55,12 +55,12 @@ class _MyHomePageState extends State<MyHomePage> {
           Image.asset(
             'assets/1.jpg',
           ),
-          // Image.asset(
-          //   'assets/2.jpg',
-          // ),
-          // Image.asset(
-          //   'assets/3.jpg',
-          // ),
+           Image.asset(
+             'assets/2.jpg',
+           ),
+           Image.asset(
+             'assets/3.jpg',
+           ),
         ]
     );
     setState(() {

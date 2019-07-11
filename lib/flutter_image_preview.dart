@@ -20,9 +20,9 @@ class ImagePreviewWidget extends StatefulWidget{
     this.showTitle = true,
   })
       : assert(images != null && images.length > 0),
-      _titleStyle = TextStyle(color: Colors.white).merge(titleStyle),
-      _background = background ?? Colors.black,
-      super(key: key);
+        _titleStyle = TextStyle(color: Colors.white).merge(titleStyle),
+        _background = background ?? Colors.black,
+        super(key: key);
   @override
   _ImagePreviewState createState () => _ImagePreviewState();
 }
@@ -41,15 +41,15 @@ class _ImagePreviewState extends State<ImagePreviewWidget> {
       ) : null,
       backgroundColor: widget._background,
       body: SafeArea(
-        child: Center(
-          child: widget.images.length > 1 ? Swiper(
-          itemCount: widget.images.length,
-          itemBuilder: (context, index) {
-            return PinchZoomImage(image: widget.images.elementAt(index));
-          },
-          pagination: SwiperPagination(),
-          ) : PinchZoomImage(image: widget.images.first,),
-        )
+          child: Center(
+            child: widget.images.length > 1 ? Swiper(
+              itemCount: widget.images.length,
+              itemBuilder: (context, index) {
+                return PinchZoomImage(image: widget.images.elementAt(index));
+              },
+              pagination: SwiperPagination(),
+            ) : PinchZoomImage(image: widget.images.first,),
+          )
       ),
     );
   }
@@ -63,7 +63,7 @@ class ImagePreview {
     Color background,
     TextStyle titleStyle,
     bool showTitle = true
-    }) async {
+  }) async {
     return Navigator.push(
         context,
         MaterialPageRoute(
@@ -73,7 +73,7 @@ class ImagePreview {
               background: background,
               titleStyle: titleStyle,
               showTitle: showTitle,
-              )
+            )
         )
     );
   }

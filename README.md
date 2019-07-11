@@ -1,6 +1,6 @@
 # flutter_image_preview
 
-image shower like wechat image preview.
+Image shower like wechat image preview.
 
 ## Getting Started
 
