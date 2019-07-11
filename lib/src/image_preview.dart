@@ -5,23 +5,18 @@ import 'package:flutter_swiper/flutter_swiper.dart';
 
 class ImagePreviewWidget extends StatefulWidget{
   final List<ImageProvider> images;
-  final String title;
-  final Color _background;
-  final bool showTitle;
-  final AppBar appBar;
   final int initIndex;
+  final PreviewTheme _previewTheme;
 
   ImagePreviewWidget({
     Key key,
     @required this.images,
-    this.title = '预览',
     Color background,
-    this.appBar,
     this.initIndex = 0,
-    this.showTitle = true,
+    PreviewTheme previewTheme,
   })
     : assert(images != null && images.length > 0),
-      _background = background ?? Colors.black,
+      _previewTheme = previewTheme ?? PreviewTheme(),
       super(key: key);
   @override
   _ImagePreviewState createState () => _ImagePreviewState();
@@ -32,20 +27,8 @@ class _ImagePreviewState extends State<ImagePreviewWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: widget.showTitle ? widget.appBar ?? AppBar(
-        title: Text(
-          widget.title,
-          style: TextStyle(
-            color: Colors.white,
-          ),
-        ),
-        backgroundColor: Colors.transparent,
-        brightness: Brightness.dark,
-        iconTheme: IconThemeData(
-          color: Colors.white,
-        ),
-      ) : null,
-      backgroundColor: widget._background,
+      appBar: widget._previewTheme.appBar,
+      backgroundColor: widget._previewTheme.background,
       body: SafeArea(
           child: Center(
             child: widget.images.length > 1
@@ -54,7 +37,7 @@ class _ImagePreviewState extends State<ImagePreviewWidget> {
                   return buildImage(image);
                 }).toList(),
                 pagination: SwiperPagination(
-
+                  builder: DotSwiperPaginationBuilder(activeColor: widget._previewTheme.activeColor)
                 ),
                 index: widget.initIndex,
               )
@@ -79,24 +62,47 @@ class _ImagePreviewState extends State<ImagePreviewWidget> {
 class ImagePreview {
   static Future showImagePreview (BuildContext context, {
     @required List<ImageProvider> images,
-    String title = '预览',
-    Color background,
-    AppBar appBar,
-    bool showTitle = true,
-    int initIndex = 0
+    int initIndex = 0,
+    PreviewTheme previewTheme,
   }) async {
     return Navigator.push(
         context,
         MaterialPageRoute(
-            builder: (context) => ImagePreviewWidget(
-              images: images,
-              title: title,
-              background: background,
-              showTitle: showTitle,
-              appBar: appBar,
-              initIndex: initIndex
-            )
+          builder: (context) => ImagePreviewWidget(
+            images: images,
+            initIndex: initIndex,
+            previewTheme: previewTheme,
+          )
         )
     );
   }
+}
+
+
+class PreviewTheme {
+  String title;
+  Color background;
+  bool showTitle;
+  AppBar appBar;
+  Color activeColor;
+
+  PreviewTheme({
+    this.title = '预览', 
+    this.background = Colors.black, 
+    this.showTitle = true, 
+    AppBar appBar, 
+    this.activeColor = Colors.blue,
+    }) : this.appBar = showTitle ? appBar ?? AppBar(
+        title: Text(
+          title,
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
+        backgroundColor: Colors.transparent,
+        brightness: Brightness.dark,
+        iconTheme: IconThemeData(
+          color: Colors.white,
+        ),
+      ) : null;
 }

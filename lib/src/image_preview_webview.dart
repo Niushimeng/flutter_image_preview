@@ -10,8 +10,14 @@ class ImagePreviewWebview extends StatefulWidget {
   final String url;
   final Widget loading;
   final Map<String, String> headers;
+  final PreviewTheme previewTheme;
 
-  ImagePreviewWebview({this.url, this.loading, this.headers});
+  ImagePreviewWebview({
+    this.url, 
+    this.loading, 
+    this.headers,
+    this.previewTheme,
+    });
 
   @override
   _ImagePreviewWebviewState createState() => _ImagePreviewWebviewState();
@@ -98,6 +104,7 @@ class _ImagePreviewWebviewState extends State<ImagePreviewWebview> {
         );
       }).toList(),
       initIndex: index,
+      previewTheme: widget.previewTheme 
     );
   }
 }
