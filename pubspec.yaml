@@ -1,8 +1,8 @@
 name: flutter_image_preview
-description: image shower like wechat image preview.
+description: image shower like wechat image preview and use image preview in webview.
 version: 0.0.1
-author:
-homepage:
+author: Niushimeng <654772803@qq.com>
+homepage: https://github.com/Niushimeng/flutter_image_preview.git
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
