@@ -5,6 +5,7 @@
 
 图片预览
 
+```Dart
 import 'package:flutter_image_preview/flutter_image_preview.dart';
 ImagePreview.showImagePreview(
     context, 
@@ -20,13 +21,14 @@ ImagePreview.showImagePreview(
         ),
     ]
 );
+```
 
 点击webview中的图片进行预览
-
+```Dart
 ImagePreviewWebview(
     url: 'https://home.biaosuzy.com/page/articles/1',
 )
-
+```
 
 
 
