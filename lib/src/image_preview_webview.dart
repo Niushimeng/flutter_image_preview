@@ -42,7 +42,12 @@ class _ImagePreviewWebviewState extends State<ImagePreviewWebview> {
             setImageTapListener(_controller);
           },
         ),
-        widget.loading ?? CircularProgressIndicator(),
+        Offstage(
+          offstage: !loading,
+          child: widget.loading ?? Center(
+            child: CircularProgressIndicator(),
+          ),
+        ),
       ],
     );
   }

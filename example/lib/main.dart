@@ -106,12 +106,20 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
+            RaisedButton(
+              child: Text('open article'),
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(
+                  builder: (context) => Scaffold(
+                    appBar: AppBar(
+                      title: Text('article'),
+                    ),
+                    body: ImagePreviewWebview(
+                      url: 'https://home.biaosuzy.com/page/articles/1',
+                    ),
+                  )
+                ));
+              },
             ),
           ],
         ),
