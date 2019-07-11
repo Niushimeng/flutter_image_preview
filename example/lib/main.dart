@@ -50,17 +50,16 @@ class _MyHomePageState extends State<MyHomePage> {
   void _incrementCounter() {
     ImagePreview.showImagePreview(
         context, 
-        showTitle: false,
-        images: <Widget>[
-          Image.asset(
+        images: <ImageProvider>[
+          AssetImage(
             'assets/1.jpg',
           ),
-           Image.asset(
-             'assets/2.jpg',
-           ),
-           Image.asset(
-             'assets/3.jpg',
-           ),
+          AssetImage(
+            'assets/2.jpg',
+          ),
+          AssetImage(
+            'assets/3.jpg',
+          ),
         ]
     );
     setState(() {

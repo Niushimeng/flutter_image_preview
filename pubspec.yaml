@@ -1,5 +1,5 @@
 name: flutter_image_preview
-description: Image shower like wechat image preview.
+description: image shower like wechat image preview.
 version: 0.0.1
 author:
 homepage:
@@ -10,8 +10,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  pinch_zoom_image: ^0.2.5
+  extended_image: ^0.3.6
   flutter_swiper: ^1.1.6
+  webview_flutter: ^0.3.7+1
 
 dev_dependencies:
   flutter_test:
