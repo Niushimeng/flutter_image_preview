@@ -11,12 +11,14 @@ class ImagePreviewWebview extends StatefulWidget {
   final Widget loading;
   final Map<String, String> headers;
   final PreviewTheme previewTheme;
+  final bool debuggingEnabled;
 
   ImagePreviewWebview({
     this.url, 
     this.loading, 
     this.headers,
     this.previewTheme,
+    this.debuggingEnabled=false,
     });
 
   @override
@@ -47,6 +49,7 @@ class _ImagePreviewWebviewState extends State<ImagePreviewWebview> {
           onPageFinished: (String url) {
             setImageTapListener(_controller);
           },
+          debuggingEnabled: widget.debuggingEnabled,
         ),
         Offstage(
           offstage: !loading,
