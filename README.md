@@ -1,5 +1,6 @@
 # flutter_image_preview
 自己项目使用的一个图片预览组件，支持点击webview中的图片进行预览
+注意: 要求flutter 版本>=1.7.8
 
 ## Getting Started
 

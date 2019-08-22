@@ -10,8 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  extended_image:
-    git: https://gitee.com/niusm/extended_image.git
+  extended_image: ^0.5.5
   flutter_swiper: ^1.1.6
   webview_flutter: ^0.3.9+1
 
