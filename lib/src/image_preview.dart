@@ -51,7 +51,7 @@ class _ImagePreviewState extends State<ImagePreviewWidget> {
     var media = MediaQuery.of(context);
     return ExtendedImage(
       image: image,
-      mode: ExtendedImageMode.Gesture,
+      mode: ExtendedImageMode.gesture,
       height: media.size.height,
       fit: BoxFit.fitWidth,
     );
