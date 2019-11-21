@@ -53,6 +53,7 @@ class _ImagePreviewState extends State<ImagePreviewWidget> {
       image: image,
       mode: ExtendedImageMode.gesture,
       height: media.size.height,
+      width: media.size.width,
       fit: BoxFit.scaleDown,
     );
   }
