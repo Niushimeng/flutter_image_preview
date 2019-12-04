@@ -48,6 +48,9 @@ class _ImagePreviewWebviewState extends State<ImagePreviewWebview> {
           onWebViewCreated: onWebViewCreated,
           onPageFinished: (String url) {
             setImageTapListener(_controller);
+            setState(() {
+      	      loading = false;
+            });
           },
           debuggingEnabled: widget.debuggingEnabled,
         ),
@@ -67,9 +70,6 @@ class _ImagePreviewWebviewState extends State<ImagePreviewWebview> {
       widget.url,
       headers: widget.headers,
     );
-    setState(() {
-      loading = false;
-    });
   }
 
 
